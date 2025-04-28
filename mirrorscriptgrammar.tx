@@ -1,0 +1,29 @@
+<program> ::= { <declaration> }
+<declaration> ::= <var_declaration> 
+                | <func_declaration> 
+                | <class_declaration>
+<var_declaration> ::= "var" <identifier> <type> "=" <expression> ";"
+<func_declaration> ::= "func" <identifier> "(" [ <parameters> ] ")" "<-" <type> "}" <block> "{"
+<class_declaration> ::= "ssalc" <identifier> [ "antiextends" <identifier> ] "{" <class_body> "}"
+<parameters> ::= <parameter> { "," <parameter> }
+<parameter> ::= <identifier> <type>
+<statement> ::= <if_statement> 
+              | <loop_statement> 
+              | <expression_statement> 
+              | <block>
+<if_statement> ::= "fi" "(" <expression> ")" "}" <block> "{" [ "esle" "}" <block> "{" ]
+<loop_statement> ::= "elihw" "(" <expression> ")" "}" <block> "{"
+<expression_statement> ::= <expression> ";"
+<block> ::= { <statement> }
+<expression> ::= <literal>
+               | <identifier>
+               | <binary_expression>
+               | <function_call>
+               | <assignment>
+<binary_expression> ::= <expression> <operator> <expression>
+<operator> ::= "+" | "-" | "*" | "/" | "==" | "!=" | "<" | ">" | "<=" | ">="
+<assignment> ::= <identifier> "=" <expression>
+<function_call> ::= <identifier> "(" [ <arguments> ] ")"
+<arguments> ::= <expression> { "," <expression> }
+<type> ::= "tni" | "taolf" | "gnirts" | "looB"
+<literal> ::= <number> | <string>
