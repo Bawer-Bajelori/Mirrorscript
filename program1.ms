@@ -2,7 +2,7 @@ x = 5
 y = 0
 
 while(x)
-    print("gninruc eulav")
+    print("gnisaerced eulav")
     print(x)
     x = x + -1
 endwhile
