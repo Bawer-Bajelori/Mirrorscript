@@ -1,29 +1,64 @@
-<program> ::= { <declaration> }
-<declaration> ::= <var_declaration> 
-                | <func_declaration> 
+<keywords> ::= <kw_if>
+             | <kw_else>
+             | <kw_while>
+             | <kw_class>
+             | <kw_func>
+             | <kw_var>
+             | <kw_print>
+
+<kw_if>    ::= "fi"      /* mirrors `if` */
+<kw_else>  ::= "esle"    /* mirrors `else` */
+<kw_while> ::= "elihw"   /* mirrors `while` */
+<kw_class> ::= "ssalc"   /* mirrors `class` */
+<kw_func>  ::= "func"    /* function keyword */
+<kw_var>   ::= "var"     /* variable declaration */
+<kw_print> ::= "print"   /* print call */
+
+<program> ::= “{” <declaration> “}”
+
+<declaration> ::= <var_declaration>  
+                | <func_declaration>  
                 | <class_declaration>
-<var_declaration> ::= "var" <identifier> <type> "=" <expression> ";"
-<func_declaration> ::= "func" <identifier> "(" [ <parameters> ] ")" "<-" <type> "}" <block> "{"
-<class_declaration> ::= "ssalc" <identifier> [ "antiextends" <identifier> ] "{" <class_body> "}"
-<parameters> ::= <parameter> { "," <parameter> }
-<parameter> ::= <identifier> <type>
-<statement> ::= <if_statement> 
-              | <loop_statement> 
-              | <expression_statement> 
+
+<var_declaration> ::= <type> <identifier> “=” <expression> “;”
+
+<func_declaration> ::= <type> “func” <identifier> “(” [ <parameters> ] “)” “{” <block> “}”
+
+<class_declaration> ::= “ssalc” <identifier> [ “antiextends” <identifier> ] “{” <class_body> “}”
+
+<parameters> ::= <parameter> { “,” <parameter> }
+
+<parameter> ::= <type> <identifier>
+
+<statement> ::= <if_statement>  
+              | <loop_statement>  
+              | <expression_statement>  
               | <block>
-<if_statement> ::= "fi" "(" <expression> ")" "}" <block> "{" [ "esle" "}" <block> "{" ]
-<loop_statement> ::= "elihw" "(" <expression> ")" "}" <block> "{"
-<expression_statement> ::= <expression> ";"
-<block> ::= { <statement> }
-<expression> ::= <literal>
-               | <identifier>
-               | <binary_expression>
-               | <function_call>
+
+<if_statement> ::= “fi” “(” <expression> “)” “{” <block> “}” [ “esle” “{” <block> “}” ]
+
+<loop_statement> ::= “elihw” “(” <expression> “)” “{” <block> “}”
+
+<expression_statement> ::= <expression> “;”
+
+<block> ::= “{” <statement> “}”
+
+<expression> ::= <literal>  
+               | <identifier>  
+               | <binary_expression>  
+               | <function_call>  
                | <assignment>
+
 <binary_expression> ::= <expression> <operator> <expression>
-<operator> ::= "+" | "-" | "*" | "/" | "==" | "!=" | "<" | ">" | "<=" | ">="
-<assignment> ::= <identifier> "=" <expression>
-<function_call> ::= <identifier> "(" [ <arguments> ] ")"
-<arguments> ::= <expression> { "," <expression> }
-<type> ::= "tni" | "taolf" | "gnirts" | "looB"
+
+<operator> ::= “+” | “-” | “*” | “/” | “==” | “!=” | “<” | “>” | “<=” | “>=”
+
+<assignment> ::= <identifier> “=” <expression>
+
+<function_call> ::= <identifier> “(” [ <arguments> ] “)”
+
+<arguments> ::= <expression> { “,” <expression> }
+
+<type> ::= “tni” | “taolf” | “gnirts” | “looB”
+
 <literal> ::= <number> | <string>

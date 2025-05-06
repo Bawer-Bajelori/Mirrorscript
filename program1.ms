@@ -1,14 +1,8 @@
-x = 5
-y = 0
+rav x = 5
 
-while(x)
-    print("gnisaerced eulav")
+elihw(x > 0)
     print(x)
-    x = x + -1
-endwhile
+    rav x = x + -1
+elihwdne
 
-if(y)
-    print("This should not print")
-endif
-
-print("hsinif si tpircs")
+print("hello world")
