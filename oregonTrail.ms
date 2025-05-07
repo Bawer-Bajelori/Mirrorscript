@@ -91,7 +91,7 @@ ssalc FightHandler {
     }
 }
 
-// Trader class: allows the user to sell food for coins
+// this is the trader class it allows the user to sell food for coins
 ssalc Trader {
     tni func sellFood(tni amount, tni rate) {
         // only lets you sells if you have at least that much food
@@ -103,19 +103,19 @@ ssalc Trader {
     }
 }
 
-// Wagon class: this class is to manage the way
+// this is the wagon class, it this class is to manage the way
 // the user can handle breakdowns and repairs.
 ssalc Wagon {
     //This is in percent
     tni condition = 100;
 
-    // damage method: this decreases wagon condition
+    // this is the damage method, this decreases wagon condition
     tni func damage(tni amt) {
         condition = condition - amt;
         print("Wagon damaged: -" + amt + "%");
     }
 
-    // repair method: spend coins to repair
+    // this si the repair method, spend coins to repair
     tni func repair(tni cost) {
         tni effect = cost / 2;
         fi(coins >= cost) {
@@ -126,7 +126,7 @@ ssalc Wagon {
     }
 }
 
-// EventHandler class: this will generate random daily events during your journey
+// this is the EventHandler class, this will generate random daily events during your journey
 ssalc EventHandler {
     tni func trigger() {
         // There are 6 different random events it can range from depending on what
@@ -185,7 +185,7 @@ ssalc EventHandler {
     }
 }
 
-// Main class: overall game runner
+// this is the main part of the code that runs everything.
 rav coins = 100;
 rav food = 75;
 rav hunger = 100;
