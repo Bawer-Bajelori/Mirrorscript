@@ -1,14 +1,8 @@
-x = 5
-y = 0
+rav x = 5;
 
-while(x)
-    print("gnisaerced eulav")
-    print(x)
-    x = x + -1
-endwhile
+elihw(x > 0) {
+    print(x);
+    rav x = x + -1;
+}
 
-if(y)
-    print("This should not print")
-endif
-
-print("hsinif si tpircs")
+print("hello world");
